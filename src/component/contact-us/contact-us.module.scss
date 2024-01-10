@@ -1,0 +1,38 @@
+.gridContainer {
+  .form {
+    // max-width: 250px;
+    min-width: 20rem;
+    // height: 500px;
+    max-width: 90rem;
+    padding: 1rem;
+    position: relative;
+    // background: linear-gradient(to right, rgb(37, 9, 177), purple);
+    padding: 10px;
+  }
+}
+.imageWrapper {
+  display: flex;
+  align-items: center;
+}
+.leftSection {
+  width: 100%;
+  position: relative;
+}
+.formWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.submitButton
+{
+  padding: 1rem;
+  min-width: 8rem;
+  border-radius: 2rem;
+}

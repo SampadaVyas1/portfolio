@@ -1,0 +1,7 @@
+.buttonWrapper {
+  padding: 1rem;
+  &:hover {
+    background-color: rgb(19, 22, 24);
+    color: white;
+  }
+}

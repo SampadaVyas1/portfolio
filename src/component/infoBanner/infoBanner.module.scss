@@ -1,0 +1,50 @@
+@import "../../styles/mixins";
+.infoContainer {
+  display: flex;
+  gap: 2.5rem;
+  width: 100%;
+  padding: 2rem;
+  @include respondTo("mobile") {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.profilePic {
+  border-radius: 2rem;
+  height: 25rem;
+  width: 30rem;
+  @include respondTo("mobile") {
+    height: 15rem;
+    width: 20rem;
+  }
+}
+.aboutMeTitle {
+  font-size: 1.3rem;
+  color: purple;
+}
+
+.iconList {
+  padding-top: 1rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.copyright {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+.icon {
+  border: 2px solid white;
+  padding: 0.5rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  &:hover {
+    background-color: white;
+    color: black;
+  }
+}

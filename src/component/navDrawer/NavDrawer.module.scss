@@ -1,0 +1,32 @@
+.menuIcon {
+  height: 2rem;
+  width: 2rem;
+  z-index: 100;
+}
+.drawer {
+  padding: 0.5rem;
+  background-color: rgb(19, 22, 24);
+  width: 100vw;
+  overflow: hidden;
+}
+.listItems {
+  height: 100%;
+  width: 100%;
+  overflow-y: hidden;
+  position: fixed;
+  top: 2rem;
+  bottom: 0;
+  right: 0;
+  background-color: rgb(19, 22, 24);
+  z-index: 10;
+  padding: 1rem;
+}
+.unorderList {
+  list-style-type: none;
+  padding-top: 1rem;
+  display: flex;
+  justify-content: flex-start;
+
+  gap: 2rem;
+  flex-direction: column;
+}

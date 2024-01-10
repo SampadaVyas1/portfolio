@@ -1,0 +1,45 @@
+.imageWrapper {
+  border-radius: 1rem;
+  position: absolute;
+  height: 300px;
+  width: 300px;
+  background-color: #0a66c2;
+  transition: width 2s, height 2s, transform 2s;
+}
+.heroBannerContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.imageContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  height: 300px;
+}
+
+.imageContainer:hover .image2 {
+  transform: rotate(30deg) translate3d(49%, -11%, 0);
+  background-color: #0a66c2;
+  height: 100%;
+  cursor: pointer;
+}
+
+.image2,
+.image3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 5rem;
+}
+
+.imageContainer:hover .image3 {
+  transform: rotate(-31deg) translate3d(-49.5%, -10.5%, 0);
+  background-color: #0a66c2;
+  cursor: pointer;
+}
+.description {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

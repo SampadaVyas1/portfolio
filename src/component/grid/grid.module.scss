@@ -1,0 +1,59 @@
+// @import "../";
+@import "../../styles/mixins";
+
+.gridContainer {
+  @include gridProps(repeat(12, 1fr));
+  width: 100%;
+  @include respondTo("tab") {
+    @include gridProps(repeat(8, 1fr));
+  }
+  @include respondTo("mobile") {
+    @include gridProps(repeat(8, 1fr));
+  }
+}
+
+.gridItem-12 {
+  grid-column: span 12;
+}
+.gridItem-11 {
+  grid-column: span 5;
+}
+.gridItem-10 {
+  grid-column: span 5;
+}
+
+.gridItem-9 {
+  grid-column: span 5;
+}
+
+.gridItem-8 {
+  grid-column: span 8;
+}
+.gridItem-6 {
+  grid-column: span 6;
+}
+.gridItem-4 {
+  grid-column: span 4;
+}
+.gridItem-3 {
+  grid-column: span 3;
+}
+.gridItem-2 {
+  grid-column: span 2;
+}
+.gridItem-1 {
+  grid-column: span 1;
+}
+.gridItem-5 {
+  grid-column: span 5;
+}
+
+.gridItem-align-left {
+  text-align: $text-align-left;
+}
+.gridItem-align-center {
+  text-align: $text-align-center;
+}
+.gridItem-align-right {
+  text-align: $text-align-right;
+}
