@@ -13,7 +13,13 @@ const HomeHeroBanner = () => {
       setCount(0);
     }, 100);
   };
-  
+
+  const downloadCv = () => {
+    console.log("jdhj");
+
+    window.open("http://www.w3schools.com", "_blank");
+  };
+
   const handleMouseEnter = () => {
     if (cursorType != CURSOR_TYPE.BIGCIRCLE) {
       cursorChangeHandler(CURSOR_TYPE.BIGCIRCLE);
@@ -73,7 +79,9 @@ const HomeHeroBanner = () => {
           <div>Turning Ideas into Reality</div>
         </div>
         <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-          <Button customStyle={classes.downloadCv}>Download CV</Button>
+          <Button customStyle={classes.downloadCv} onClick={downloadCv}>
+            Download CV
+          </Button>
         </div>
       </div>
     </div>

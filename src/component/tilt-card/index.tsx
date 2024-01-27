@@ -40,7 +40,6 @@ const TiltCardComponent = (props: ITiltCardComponent) => {
     clientX: number;
     clientY: number;
   }) => {
-    console.log("hello", corner);
     const bounds = event.currentTarget.getBoundingClientRect();
     const cursorX = (event.clientX - bounds.left) / bounds.width;
     const cursorY = (event.clientY - bounds.top) / bounds.height;

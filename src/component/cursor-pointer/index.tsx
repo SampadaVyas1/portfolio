@@ -21,9 +21,7 @@ const CursorPointer = () => {
   const cursorCircle = useRef<HTMLDivElement | null>(null);
   const cursorDot = useRef<HTMLDivElement | null>(null);
   const { cursorType } = useContext(MouseContext);
-  console.log("hello", cursorType);
 
- 
   const updatedCursorPosition = useCallback(() => {
     if (cursorCircle.current && cursorDot.current) {
       updateCursorWithMousePosition(cursorCircle.current, mousePosition);

@@ -39,7 +39,7 @@ export const CONTACT_US_SIDE_FORM_SCHEMA = yup.object({
     .test(
       "no-leading-trailing-spaces",
       "Name should not have leading or trailing spaces",
-      (value) => {
+      (value:any) => {
         if (value) {
           return value.trim() === value;
         }
