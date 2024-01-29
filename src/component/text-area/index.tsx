@@ -7,6 +7,7 @@ const TextArea = (props: any) => {
     register,
     customContainerClass,
     customTextAreaClass,
+    onChange,
     ...rest
   } = props;
 
@@ -18,6 +19,7 @@ const TextArea = (props: any) => {
     >
       <textarea
         name={name}
+        onChange={onChange}
         className={` ${classes.textArea} ${
           customTextAreaClass ? customTextAreaClass : ""
         }`}

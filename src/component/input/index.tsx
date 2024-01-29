@@ -12,6 +12,7 @@ const Input = (props: IInputProps) => {
     customInputClass,
     getValues,
     clearErrors,
+    onChange,
     ...rest
   } = props;
   const errorMsg = errors?.[name]?.message || "";
@@ -36,11 +37,11 @@ const Input = (props: IInputProps) => {
         className={`${classes.input} ${errorMsg && classes.errStateInput} ${
           customInputClass ?? ""
         }`}
+        onChange={onChange}
         type={type}
         name={name}
         {...(register && register(name))}
         {...rest}
-        onBlur={handleBlur}
       />
     </div>
   );

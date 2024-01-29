@@ -1,3 +1,4 @@
+@import "../../../src/styles/mixins";
 .renderFormField {
   display: flex;
   gap: 1rem;
@@ -10,4 +11,7 @@
 
 .inputField {
   width: 46rem;
+  @include respondTo("mobile") {
+    width: 100%;
+  }
 }

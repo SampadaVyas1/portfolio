@@ -5,9 +5,11 @@ import Typist from "react-typist-component";
 import Button from "../button";
 import { CURSOR_TYPE } from "../cursor-pointer/cursor-type.helper";
 import { MouseContext } from "../../mouseContext/mouseContext";
+
 const HomeHeroBanner = () => {
   const [count, setCount] = useState<number>(0);
   const { cursorType, cursorChangeHandler } = useContext(MouseContext);
+
   const handleSetTimeOut = () => {
     setTimeout(() => {
       setCount(0);
@@ -15,9 +17,10 @@ const HomeHeroBanner = () => {
   };
 
   const downloadCv = () => {
-    console.log("jdhj");
-
-    window.open("http://www.w3schools.com", "_blank");
+    window.open(
+      "https://drive.google.com/file/d/1B5LYj1be8MZYcHDNcK--DgyI5WW3zSgm/view",
+      "_blank"
+    );
   };
 
   const handleMouseEnter = () => {
@@ -32,12 +35,11 @@ const HomeHeroBanner = () => {
   useEffect(() => setCount(1), [count]);
   const handleTitleForHome = () => {
     return (
-      <div className={classes.homeTitle}>
+      <div className={classes.homeTitle} id="">
         <div className={classes.helloText}>Hello & Welcome !</div>
         {count && (
           <Typist
             cursor={<span>|</span>}
-            // avgTypingDelay={100}
             onTypingDone={() => handleSetTimeOut()}
           >
             <span>{"I'm Sampada Vyas." || " "}</span>
@@ -49,9 +51,9 @@ const HomeHeroBanner = () => {
             <span>{"Geek" || " "}</span>
             <Typist.Delay ms={1000} />
             <Typist.Backspace count={"Geek.".length} />
-            <span>{"a Devolper" || " "}</span>
+            <span>{" a Developer" || " "}</span>
             <Typist.Delay ms={1000} />
-            <Typist.Backspace count={"a Devolper.".length} />
+            <Typist.Backspace count={"a Developer.".length} />
           </Typist>
         )}
         {/* <Typist>Animate this text.</Typist>; */}
@@ -62,13 +64,7 @@ const HomeHeroBanner = () => {
     <div>
       <div className={classes.homeWrapper}>
         <img
-          // src="https://png.pngtree.com/background/20230525/original/pngtree-computer-animation-picture-image_2732954.jpg"
-          // src="https://c4.wallpaperflare.com/wallpaper/275/295/800/clouds-mountains-night-the-moon-wallpaper-preview.jpg"
-          // src="https://w0.peakpx.com/wallpaper/924/302/HD-wallpaper-purple-moon-purple-moon-trees-black-sky-night-thumbnail.jpg"
-          // src="https://cdn.wallpapersafari.com/78/86/dgyEXB.jpg"
-          // src="https://w0.peakpx.com/wallpaper/466/125/HD-wallpaper-starry-sky-black-clouds-dark-moon-mountains-stars.jpg"
           src="https://static.vecteezy.com/system/resources/previews/006/660/323/large_2x/full-moon-with-many-stars-and-reflection-on-water-dark-night-sky-background-free-photo.jpg"
-          // src="https://c1.wallpaperflare.com/preview/532/545/222/moon-planet-space-universe.jpg"
           alt=""
           className={classes.backgroundImage}
         />

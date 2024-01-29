@@ -1,3 +1,5 @@
+@import "../../styles/mixins";
+
 .contactWrapper {
   display: flex;
   justify-content: center;
@@ -23,6 +25,12 @@
 
 .image {
   border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  @include respondTo("mobile") {
+    width: 50px;
+    height: 50px;
+  }
 }
 
 .contactitle {
@@ -43,5 +51,9 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-
+}
+.ans {
+  @include respondTo("mobile") {
+    font-size: 0.75rem;
+  }
 }

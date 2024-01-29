@@ -7,10 +7,16 @@ import { FaFacebook } from "react-icons/fa6";
 import { MouseContext } from "../../mouseContext/mouseContext";
 import { CURSOR_TYPE } from "../cursor-pointer/cursor-type.helper";
 const socialMedia = [
-  <FaLinkedinIn />,
-  <FaXTwitter />,
-  <FaGithub />,
-  <FaFacebook />,
+  {
+    icon: <FaLinkedinIn />,
+    link: "https://www.linkedin.com/in/sampada-vyas-02b82b171?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+  },
+  {
+    icon: <FaXTwitter />,
+    link: "https://x.com/VyasSampada?t=q21Cu0z-6Nx2vUuug6zAFA&s=09",
+  },
+  { icon: <FaGithub />, link: "https://github.com/SampadaVyas1" },
+  { icon: <FaFacebook />, link: "" },
 ];
 
 const Footer = () => {
@@ -27,14 +33,15 @@ const Footer = () => {
   return (
     <div className={classes.footer}>
       <div className={classes.iconList}>
-        {socialMedia.map((icon) => {
+        {socialMedia.map((item) => {
           return (
             <div
               className={classes.icon}
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
+              onClick={() => window.open(item.link, "_blank")}
             >
-              {icon}
+              {item.icon}
             </div>
           );
         })}

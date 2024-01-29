@@ -1,22 +1,19 @@
 import React, { createContext, useState } from "react";
-import { MouseContextType, MouseContextProviderProps } from "./mouseContext.d";
 import { CURSOR_TYPE } from "../component/cursor-pointer/cursor-type.helper";
 
-export const MouseContext = createContext<MouseContextType>({
+export const MouseContext = createContext<any>({
   cursorType: CURSOR_TYPE.DOTCURSOR,
   cursorChangeHandler: () => {},
 });
 
-const MouseContextProvider: React.FC<MouseContextProviderProps> = ({
-  children,
-}) => {
+const MouseContextProvider: React.FC<any> = ({ children }) => {
   const [cursorType, setCursorType] = useState<string>(CURSOR_TYPE.DOTCURSOR);
 
   const cursorChangeHandler = (cursorType: string) => {
     setCursorType(cursorType);
   };
 
-  const contextValue: MouseContextType = {
+  const contextValue: any = {
     cursorType: cursorType,
     cursorChangeHandler: cursorChangeHandler,
   };

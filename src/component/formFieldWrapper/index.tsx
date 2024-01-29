@@ -1,4 +1,3 @@
-import React from "react";
 import InputLabel from "../input-label";
 import { FieldType } from "../../constants/common";
 import TextArea from "../text-area";
@@ -7,15 +6,8 @@ import classes from "./formFieldWrapper.module.scss";
 import InputError from "../inputError";
 
 const FormFieldWrapper = (props: any) => {
-  const {
-    label,
-    isRequired,
-    errors,
-    fieldData,
-    onKeyDown,
-    register,
-    disableField,
-  } = props;
+  const { label, isRequired, errors, fieldData, setFormData, formData } = props;
+
   const renderFormField = (field: any) => {
     const { type } = field;
     switch (type) {
@@ -26,18 +18,30 @@ const FormFieldWrapper = (props: any) => {
             placeholder={field?.placeholder}
             required={field?.required}
             name={field?.name}
-            register={register}
-            disabled={disableField}
-            onKeyDown={onKeyDown}
+            value={formData.message}
+            onChange={(event: any) =>
+              setFormData((prev: any) => ({
+                ...prev,
+                [field?.name]: event.target.value,
+              }))
+            }
           />
         );
       default:
         return (
           <Input
+            required
             placeholder={field?.placeholder}
-            register={register}
             name={field?.name}
+            type={field?.name === "name" ? "text" : "email"}
             customContainerClass={classes.inputField}
+            value={field?.name === "name" ? formData.name : formData.email}
+            onChange={(event) =>
+              setFormData((prev: any) => ({
+                ...prev,
+                [field?.name]: event.target.value,
+              }))
+            }
           />
         );
     }

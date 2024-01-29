@@ -16,12 +16,13 @@ const contactMeData = [
   {
     img: "https://banner2.cleanpng.com/20180718/twz/kisspng-computer-icons-stock-photography-email-clip-art-simblo-5b4faed2d78991.2976490215319487548829.jpg",
     text: "Email Me At",
-    ans: "sampadavyas311@gmail.com",
+    ans: "sampadavyas1@gmail.com",
   },
 ];
+
 const ContactMe = () => {
   return (
-    <div>
+    <div id="ContactUs">
       <div className={classes.contactWrapper}>
         <div className={classes.contactMeTitle}>Contact Me</div>
         <div className={classes.desc}>
@@ -32,16 +33,10 @@ const ContactMe = () => {
           {contactMeData.map((element) => {
             return (
               <div className={classes.contentData}>
-                <img
-                  src={element.img}
-                  alt=""
-                  height={80}
-                  width={80}
-                  className={classes.image}
-                />
+                <img src={element.img} alt="" className={classes.image} />
                 <div className={classes.description}>
                   <div className={classes.contactitle}>{element.text}</div>
-                  <div>{element.ans}</div>
+                  <div className={classes.ans}>{element.ans}</div>
                 </div>
               </div>
             );

@@ -1,41 +1,80 @@
-import React, { Fragment } from "react";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
+import React, { Fragment, useRef, useState } from "react";
 import Grid from "../grid";
 import classes from "./contact-us.module.scss";
 import FormFieldWrapper from "../formFieldWrapper";
 import Button from "../button";
+import emailjs from "@emailjs/browser";
 
 const ContactUs = (props: any) => {
-  const { initialValue, schema, formFields } = props;
-  const { register, handleSubmit, setValue, watch, reset } = useForm({
-    mode: "onChange",
-    resolver: yupResolver(schema),
-    defaultValues: initialValue,
-  });
-  const handleSubmitForm = () => {};
+  const { schema, formFields } = props;
+  const initialValue = {
+    name: "",
+    message: "",
+    email: "",
+  };
+  const form = useRef<null>();
+  const [formData, setFormData] = useState<any>(initialValue);
+
+  const handleSubmitForm = (e: any) => {
+    e.preventDefault();
+    console.log(formData);
+
+    setFormData(initialValue);
+
+    const customForm = document.createElement("form");
+
+    // Add input fields to the form for each key-value pair in formData
+    Object.entries(formData).forEach(([key, value]) => {
+      const input = document.createElement("input");
+      input.type = "hidden";
+      input.name = key;
+      // @ts-ignore
+      input.value = value;
+      customForm.appendChild(input);
+    });
+
+    console.log(customForm);
+    // Add the form to the document body (or any other container)
+    // document.body.appendChild(customForm);
+
+    emailjs
+      .sendForm(
+        "service_iat30t3",
+        "template_ba40yo7",
+        // @ts-ignore
+        // form.current,
+        customForm,
+        "zMs6qhtJsA0UALAwV"
+      )
+      .then(
+        (result) => {
+          console.log("success");
+        },
+        (error) => {
+          console.log("fail");
+        }
+      );
+  };
 
   return (
     <Fragment>
-      <div className={classes.formWrapper}>
+      <div className={classes.formWrapper} id="ContactUs">
         <Grid item sm={4} md={4} lg={6} className={classes.imageWrapper}>
-          <div className={classes.leftSection}>
-            {/* <img
-              src="https://www.wikihow.com/images/2/22/Make-a-Cartoon-Step-21-Version-3.jpg"
-              alt=""
-              width={400}
-              height={200}
-            /> */}
-          </div>
+          <div className={classes.leftSection}></div>
         </Grid>
         <Grid item sm={4} lg={4} md={6} className={classes.gridContainer}>
           <div className={classes.form}>
-            <form onSubmit={handleSubmit(handleSubmitForm)} autoComplete="off">
+            {/* @ts-ignore */}
+            <form ref={form} onSubmit={handleSubmitForm} autoComplete="off">
               <div className={classes.formInputs}>
                 {formFields.map((item: any, index: number) => {
                   return (
                     <div key={index}>
-                      <FormFieldWrapper fieldData={item} />
+                      <FormFieldWrapper
+                        fieldData={item}
+                        setFormData={setFormData}
+                        formData={formData}
+                      />
                     </div>
                   );
                 })}

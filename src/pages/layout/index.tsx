@@ -13,6 +13,7 @@ import Footer from "../../component/footer";
 import OurServices from "../../component/ourServices";
 import HireMe from "../../component/hireMe";
 import ContactMe from "../../component/contactMe";
+import ScrollContextProvider from "../../context/scrollContext";
 
 export const CONTACT_US_SIDE_FORM_INITIAL_VALUES = {
   name: "",
@@ -39,7 +40,7 @@ export const CONTACT_US_SIDE_FORM_SCHEMA = yup.object({
     .test(
       "no-leading-trailing-spaces",
       "Name should not have leading or trailing spaces",
-      (value:any) => {
+      (value: any) => {
         if (value) {
           return value.trim() === value;
         }
@@ -127,34 +128,35 @@ const Layout = () => {
   return (
     <div>
       <MouseContextProvider>
-        <CursorPointer />
-        <Grid container className={classes.gridItem}>
-          <Grid item sm={4} lg={12} md={8} className={classes.gridItem}>
-            <Header />
-          </Grid>
-          <Grid item sm={4} lg={12} md={8} className={classes.gridItem}>
-            {/* <InfoBanner /> */}
-            <HomeHeroBanner />
-          </Grid>
-          <Grid item sm={4} lg={12} md={8} className={classes.gridItem}>
-            <InfoBanner />
-          </Grid>
-          <Grid item sm={4} lg={12} md={8} className={classes.gridItem}>
-            <OurServices />
-          </Grid>
-          <Grid item sm={4} lg={12} md={8} className={classes.gridItem}>
-            <HireMe />
-          </Grid>
-          <Grid item sm={4} lg={12} md={8} className={classes.gridItem}>
-            <ContactMe />
-          </Grid>
-          <Grid item sm={4} lg={12} md={8} className={classes.gridItem}>
-            <Footer />
-          </Grid>
-          {/* <Grid item sm={4} lg={12} md={8} className={classes.gridItem}>
+        <ScrollContextProvider>
+          <CursorPointer />
+          <Grid container className={classes.gridItem}>
+            <Grid item sm={4} lg={12} md={8} className={classes.gridItem}>
+              <Header />
+            </Grid>
+            <Grid item sm={4} lg={12} md={8} className={classes.gridItem}>
+              <HomeHeroBanner />
+            </Grid>
+            <Grid item sm={4} lg={12} md={8} className={classes.gridItem}>
+              <InfoBanner />
+            </Grid>
+            <Grid item sm={4} lg={12} md={8} className={classes.gridItem}>
+              <OurServices />
+            </Grid>
+            <Grid item sm={4} lg={12} md={8} className={classes.gridItem}>
+              <HireMe />
+            </Grid>
+            <Grid item sm={4} lg={12} md={8} className={classes.gridItem}>
+              <ContactMe />
+            </Grid>
+            <Grid item sm={4} lg={12} md={8} className={classes.gridItem}>
+              <Footer />
+            </Grid>
+            {/* <Grid item sm={4} lg={12} md={8} className={classes.gridItem}>
           <HeroBanner />
         </Grid> */}
-        </Grid>
+          </Grid>
+        </ScrollContextProvider>
       </MouseContextProvider>
     </div>
   );
