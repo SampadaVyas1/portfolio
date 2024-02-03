@@ -11,8 +11,7 @@ const Header = () => {
       {deviceType === DeviceType.DESKTOP ? (
         <FullWidthNavBar />
       ) : (
-        deviceType === DeviceType.MOBILE ||
-        (deviceType === DeviceType.TAB && <NavDrawer />)
+        deviceType === DeviceType.MOBILE && <NavDrawer />
       )}
     </nav>
   );

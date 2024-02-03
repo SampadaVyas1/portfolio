@@ -23,7 +23,6 @@ const ContactUs = (props: any) => {
 
     const customForm = document.createElement("form");
 
-    // Add input fields to the form for each key-value pair in formData
     Object.entries(formData).forEach(([key, value]) => {
       const input = document.createElement("input");
       input.type = "hidden";

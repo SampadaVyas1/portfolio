@@ -1,3 +1,5 @@
+@import "../../styles/mixins";
+
 @mixin activeItemProp {
   color: white;
   position: relative;
@@ -18,8 +20,10 @@
   width: 100%;
   background-color: rgb(19, 22, 24);
   // background-color: rgb(19, 32, 37);
-
   padding: 1.2rem;
+  @include respondTo("mobile") {
+    display: none;
+  }
 }
 .listOfItems {
   display: flex;
