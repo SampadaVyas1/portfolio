@@ -1,5 +1,4 @@
 import React, { Fragment, useContext, useRef, useState } from "react";
-import Grid from "../grid";
 import { APP_ROUTES } from "../../utils/constants/common";
 import classes from "./FullWidthNavBar.module.scss";
 import { MouseContext } from "../../mouseContext/mouseContext";
@@ -34,8 +33,8 @@ const FullWidthNavBar = () => {
 
   return (
     <Fragment>
-      <Grid container className={classes.fullWidthNav}>
-        <Grid item sm={2} lg={6} md={4} className={classes.portfolioWrapper}>
+      <div className={classes.fullWidthNav}>
+        <div>
           <span
             onMouseEnter={() => handleMouseEnter()}
             onMouseLeave={handleMouseLeave}
@@ -44,46 +43,44 @@ const FullWidthNavBar = () => {
           >
             Portfolio
           </span>
-        </Grid>
-        <Grid item sm={2} lg={6} md={4}>
-          <ul className={classes.listOfItems}>
-            {routes.map((route: string, index: number) => {
-              return (
-                <li
-                  className={
-                    isHovered === index + 1
-                      ? `${classes.listOfItem} ${classes.activeList}`
-                      : classes.listOfItem
-                  }
+        </div>
+        <ul className={classes.listOfItems}>
+          {routes.map((route: string, index: number) => {
+            return (
+              <li
+                className={
+                  isHovered === index + 1
+                    ? `${classes.listOfItem} ${classes.activeList}`
+                    : classes.listOfItem
+                }
+              >
+                <div
+                  onMouseEnter={() => handleMouseEnter(index + 1)}
+                  onMouseLeave={handleMouseLeave}
+                  onClick={() => handleRouteClick(route)}
                 >
-                  <div
-                    onMouseEnter={() => handleMouseEnter(index + 1)}
-                    onMouseLeave={handleMouseLeave}
-                    onClick={() => handleRouteClick(route)}
-                  >
-                    {route}
-                  </div>
-                </li>
-              );
-            })}
-            <div
-              onMouseEnter={() => handleMouseEnter()}
-              onMouseLeave={handleMouseLeave}
-            >
-              <Button customStyle={classes.buttonContainer}>
-                <img
-                  src={hanshake}
-                  height={35}
-                  width={35}
-                  className={classes.icon}
-                  onClick={() => handleRouteClick("ContactUs")}
-                />
-                ContactUs
-              </Button>
-            </div>
-          </ul>
-        </Grid>
-      </Grid>
+                  {route}
+                </div>
+              </li>
+            );
+          })}
+          <div
+            onMouseEnter={() => handleMouseEnter()}
+            onMouseLeave={handleMouseLeave}
+          >
+            <Button customStyle={classes.buttonContainer}>
+              <img
+                src={hanshake}
+                height={35}
+                width={35}
+                className={classes.icon}
+                onClick={() => handleRouteClick("ContactUs")}
+              />
+              ContactUs
+            </Button>
+          </div>
+        </ul>
+      </div>
     </Fragment>
   );
 };

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { DEVICE_RATIO, DeviceType } from "../enum";
 
 function getWindowDimensions() {
@@ -27,10 +27,11 @@ const useWindowUtils = () => {
   );
   const [deviceType, setDeviceType] = useState<any>(DeviceType.DESKTOP);
 
-  const  handleResize=useCallback(()=> {
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const handleResize = () => {
     setWindowDimensions(getWindowDimensions());
     setDeviceType(getDeviceType());
-  },[])
+  };
 
   useEffect(() => {
     window.addEventListener("resize", handleResize);

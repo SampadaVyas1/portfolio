@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import classes from "./NavDrawer.module.scss";
 import menu from "../../asset/svg/menu.svg";
 import close from "../../asset/svg/close.svg";
-import Grid from "../grid";
 import { APP_ROUTES } from "../../utils/constants/common";
+
 const NavDrawer = () => {
   const routes = Object.values(APP_ROUTES);
   const [drawer, setDrawer] = useState<boolean>(false);
@@ -35,7 +35,6 @@ const NavDrawer = () => {
       </div>
       {drawer && (
         <div className={classes.listItems}>
-          {/* <Grid item sm={2} lg={6} md={4}> */}
           <ul className={classes.unorderList}>
             {routes.map((route: string, index: number) => {
               return (
@@ -45,7 +44,6 @@ const NavDrawer = () => {
               );
             })}
           </ul>
-          {/* </Grid> */}
         </div>
       )}
     </div>

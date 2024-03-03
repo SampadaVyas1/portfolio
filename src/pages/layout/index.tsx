@@ -1,8 +1,5 @@
 import React from "react";
 import Header from "../../component/header";
-import Grid from "../../component/grid";
-import classes from "./layout.module.scss";
-import HeroBanner from "../../component/heroBanner";
 import InfoBanner from "../../component/infoBanner";
 import * as yup from "yup";
 import { FieldType } from "../../constants/common";
@@ -130,32 +127,13 @@ const Layout = () => {
       <MouseContextProvider>
         <ScrollContextProvider>
           <CursorPointer />
-          <Grid container className={classes.gridItem}>
-            <Grid item sm={4} lg={12} md={8} className={classes.gridItem}>
-              <Header />
-            </Grid>
-            <Grid item sm={4} lg={12} md={8} className={classes.gridItem}>
-              <HomeHeroBanner />
-            </Grid>
-            <Grid item sm={4} lg={12} md={8} className={classes.gridItem}>
-              <InfoBanner />
-            </Grid>
-            <Grid item sm={4} lg={12} md={8} className={classes.gridItem}>
-              <OurServices />
-            </Grid>
-            <Grid item sm={4} lg={12} md={8} className={classes.gridItem}>
-              <HireMe />
-            </Grid>
-            <Grid item sm={4} lg={12} md={8} className={classes.gridItem}>
-              <ContactMe />
-            </Grid>
-            <Grid item sm={4} lg={12} md={8} className={classes.gridItem}>
-              <Footer />
-            </Grid>
-            {/* <Grid item sm={4} lg={12} md={8} className={classes.gridItem}>
-          <HeroBanner />
-        </Grid> */}
-          </Grid>
+          <Header />
+          <HomeHeroBanner />
+          <InfoBanner />
+          <OurServices />
+          <HireMe />
+          <ContactMe />
+          <Footer />
         </ScrollContextProvider>
       </MouseContextProvider>
     </div>

@@ -1,18 +1,18 @@
-import React from "react";
 import classes from "./header.module.scss";
 import useWindowUtil from "../../hooks/useWindowUtils";
 import FullWidthNavBar from "../fullWidthNavBar";
-import { DeviceType } from "../../enum";
-import NavDrawer from "../navDrawer";
+
 const Header = () => {
   const { deviceType } = useWindowUtil();
+
   return (
     <nav className={classes.navigationbar}>
-      {deviceType === DeviceType.DESKTOP ? (
+      {/* {deviceType === DeviceType.DESKTOP ? (
         <FullWidthNavBar />
       ) : (
         deviceType === DeviceType.MOBILE && <NavDrawer />
-      )}
+      )} */}
+      <FullWidthNavBar />
     </nav>
   );
 };
